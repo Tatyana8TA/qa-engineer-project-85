@@ -1,0 +1,1183 @@
+---
+# non-functional
+- summary: >
+    Проверка сайта на удобства использования и на оптимизацию для скорости
+    работы на Мобильном устройстве.
+  requirement: >
+    Веб-сайт должен быть разработан с учетом удобства использования и
+    оптимизирован для скорости работы.
+  prerequisites: |
+    Проверка при помощи PageSpeed
+  test-data: |
+    https://codebattle.hexlet.io/
+  steps:
+    - Переходим https://pagespeed.web.dev/
+    - вводим https://codebattle.hexlet.io/
+    - Выбираем "Мобильные устройства
+    - Нажимаем кнопку "Анализировать"
+  expected-result: |
+    Получаем информацию по оптимизации сайта
+    
+- summary: >
+    Проверка Веб-сайта на удобства использования на оптимизацию для
+    скорости работы на компьютере
+  requirement: >
+    Веб-сайт должен быть разработан с учетом удобства использования и
+    оптимизирован для скорости работы.
+  prerequisites: |
+    Проверка при помощи PageSpeed
+  test-data: |
+    https://codebattle.hexlet.io/
+  steps:
+    - Переходим https://pagespeed.web.dev/
+    - вводим https://codebattle.hexlet.io/
+    - Выбираем "Компьютер"
+    - Нажимаем кнопку "Анализировать"
+  expected-result: |
+    Получаем информацию по оптимизации сайта
+    
+- summary: |
+    Проверка Веб-сайта на безопасность
+  requirement: |
+    Сайт должен быть безопасным и защищать данные пользователя.
+  prerequisites: Перейти на сайт https://codebattle.hexlet.io
+  test-data: |
+    https://codebattle.hexlet.io
+  steps:
+    - Проверяем, какой используется протокол
+  expected-result: >
+    Когда переходим на сайт, должен использоваться протокол HTTPS.
+    Слева от адреса сайта будет "Замок" Соединение защищено.
+    
+- summary: |
+    Сайт должен быть удобным на мобильном устройстве
+  requirement: |
+    Сайт должен открываться и быть удобным на мобильных устройствах.
+  prerequisites: По средствам исследовательского тестирования и DevTools открываем
+    сайт и проверяем на адаптивность и удобства
+  test-data: |
+    https://codebattle.hexlet.io
+  steps:
+    - Открываем ссылку сайт на мобильном телефоне Samsung S21, Redmi 9A
+    - Переходим https://codebattle.hexlet.io
+    - Просматриваем все страницы, изображение на корректность отображения.
+    - Просмотр основных разделов сайта
+    - Проверка при помощи DevTools
+    - Выбираем мобильное устройство
+    - Просматриваем все страницы, изображение на корректность отображения.
+    - Просмотр основных разделов сайта
+  expected-result: |
+    Сайт должен открываться и быть удобным на мобильных устройствах
+    
+- summary: |
+    Совместимость сайта с последними версиями браузеров.
+  requirement: >
+    Тестируем сайт на совместимость с последними версиями браузеров при
+    помощи BrowserStack. Просматриваем основные разделы сайта 
+  prerequisites: Открыта страница https://live.browserstack.com/
+  test-data: |
+    https://codebattle.hexlet.io
+  steps:
+    - Safari
+    - Просматриваем основные разделы сайта
+    - Firefox
+    - Просматриваем основные разделы сайта
+    - Chrome
+    - Просматриваем основные разделы сайта
+    - Opera
+    - Просматриваем основные разделы сайта
+    - Edge
+    - Просматриваем основные разделы сайта
+  expected-result: >
+    Сайт совместим с последними версиями браузера. Корректное
+    отображение страницы. Просматриваются все основные разделы
+    
+- summary: |
+    Обработка большого количества трафика.
+  requirement: >
+    - Сайт должен быть способен обрабатывать большое количество трафика
+    (например, 1000 одновременных пользователей)
+  prerequisites: Открыть странизу https://loaddy.com/
+  test-data: |
+    https://codebattle.hexlet.io
+  steps:
+    - Вводим https://codebattle.hexlet.io
+    - Проверка
+  expected-result: |
+    Сайт должен быть способен обрабатывать большое количество трафика. 
+    
+# functional
+# Главная страница
+# Авторизация. Регистрация
+# Позитивное
+
+- summary: |
+    Успешная регистрации пользователя
+  requirement: >
+    Псевдоним. Может содержать буквы, цифры и символы подчеркивания и
+    должен начинаться с латинской буквы. Эл. почта. Пароль. Совпадение пароля.
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+  test-data: >
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    Nickname = Tatyana_78 Email = tatyana.borsheva@gmail.com Password = vbvbkjk87! Password = vbvbkjk87!
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим Password
+    - Повторяем Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Пользователь должен успешно зарегистрироваться и попасть на
+    https://codebattle.hexlet.io/#lobby
+    
+# негативное тестирование при регистрации пользователя    
+
+- summary: |
+    Регистрации пользователя с некорректным вводом Nickname
+  requirement: >
+    При вводе несоответствующего требованиям Nickname пользователь
+    должен получить сообщения об ошибке
+  prerequisites: Нажимаем на кнопку зарегистрироваться. Перейдем на
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+  test-data: >
+    Nickname = Татьяна Email = tatyana.borsheva@gmail.com Password =
+    vbvbkjk87! Password = vbvbkjk87!
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим Password
+    - Повторяем Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Регистрация не произойдёт. Под строкой ввода Nickname появится
+    сообщение. Can contain letters, numbers and underscores and should begin
+    with a Latin letter
+    
+- summary: |
+    Регистрации пользователя с некорректным или вводом Email
+  requirement: >
+    При вводе некорректного Email пользователь должен получить
+    сообщения об ошибке
+  prerequisites: Нажимаем на кнопку зарегистрироваться. Перейдем на
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+  test-data: >
+    Nickname = Tatyana_78 Email = tatyana.borsheva.gmail.com Password =
+    vbvbkjk87! Password = vbvbkjk87!
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим Password
+    - Повторяем Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Регистрация не произойдёт. Под строкой ввода Email появится
+    сообщение. Invalid email 
+    
+- summary: |
+    Регистрации пользователя с уже существующей Эл. почтой
+  requirement: >
+    При вводе ранне зарегистрированного Email пользователь должен
+    получить сообщения об ошибке
+  prerequisites: Нажимаем на кнопку зарегистрироваться. Перейдем на
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+  test-data: >
+    Nickname = Tatyana_78 Email = tatyana.borsheva@gmail.com Password =
+    vbvbkjk87! Password = vbvbkjk87!
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим Password
+    - Повторяем Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Регистрация не произойдёт. Под строкой ввода Email появится
+    сообщение. Email is already taken
+    
+- summary: |
+    Регистрации пользователя. Ошибка в пароля
+  requirement: >
+    При вводе пароля менее 6 символов. Пользователь должен получить
+    сообщения об ошибке
+  prerequisites: Нажимаем на кнопку зарегистрироваться. Перейдем на
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+  test-data: >
+    Nickname = Tatyana_78 Email = tatyana.borsheva@gmail.com Password =
+    1111 Password = 1111
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим Password
+    - Повторяем Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Регистрация не произойдёт. Под строкой ввода Password появится
+    сообщение.Should be from 6 to 16 characters
+    
+- summary: |
+    Регистрации пользователя. Проверка на совпадение паролей
+  requirement: >
+    При повторном внесении не похожего пароля. Пользователь должен
+    получить сообщения об ошибке
+  prerequisites: Нажимаем на кнопку зарегистрироваться. Перейдем на
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+  test-data: >
+    Nickname = Tatyana_78 Email = tatyana.borsheva@gmail.com Password =
+    1111 Password = 1112
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим Password
+    - Повторяем Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Регистрация не произайдет. Под второй строкой ввода Password
+    появится сообщение. Passwords must match
+    
+# Позитивное тестирование через Github    
+
+- summary: |
+    Успешная регистрации пользователя через Github
+  requirement: >
+    При Регистрации, пользователь может воспользоваться возможностью
+    войти через Github
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Далее Sign in with
+    Github
+  test-data: >
+    https://github.com/login?client_id=338bfc1dc364ae1bbd7f&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3D338bfc1dc364ae1bbd7f%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fgithub%252Fcallback%26scope%3Duser%253Aemail
+    Username or email address = Tatyana8TA Password = Password
+  steps:
+    - Вводим Username or email address
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Пользователь должен успешно зарегистрироваться и попасть на
+    https://codebattle.hexlet.io/#lobby
+    
+# Негативное тестирование через Github 
+
+- summary: >
+    Проверка регистрация пользователя с несуществующими логином и паролем
+    через Github
+  requirement: >
+    При вводе несуществующего логина или пароля пользователь должен
+    получить сообщение об ошибке
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Далее Sign in with
+    Github
+  test-data: >
+    https://github.com/login?client_id=338bfc1dc364ae1bbd7f&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3D338bfc1dc364ae1bbd7f%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fgithub%252Fcallback%26scope%3Duser%253Aemail
+    Username or email address = tata Password = Password
+  steps:
+    - Вводим Username or email address
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Регистрация не произайдет. Пользователь должен получить ошибку
+    Incorrect username or password. 
+    
+# Позитивное тестирование через Discord 
+
+- summary: |
+    Успешная регистрации пользователя через Discord
+  requirement: >
+    При Регистрации, пользователь может воспользоваться возможностью
+    войти через Discord
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Далее Sign in with
+    Github
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+    Адрес эл. почты или номер телефона = tatestbo@gmail.com Пароль = Password
+  steps:
+    - Вводим эл.почту
+    - Вводим пароль
+    - Нажимаем кнопку «Вход»
+    - Запрос на доступ
+    - Авторизация
+  expected-result: >
+    Пользователь должен успешно зарегистрироваться и попасть на
+    https://codebattle.hexlet.io/#lobby
+    
+- summary: |
+    Успешная регистрации пользователя через Discord с помощью QR- код
+  requirement: >
+    При Регистрации, пользователь может воспользоваться возможностью
+    войти через Discord
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Далее Sign in with
+    Github Отсканировать QR- код
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+  steps:
+    - Сканирование QR- код
+    - Переход по ссылке
+  expected-result: >
+    Пользователь должен успешно зарегистрироваться и попасть на
+    https://codebattle.hexlet.io/#lobby
+    
+# Негативное тестирование через Discord
+
+- summary: >
+    Проверка регистрация пользователя с несуществующей почтой и паролем
+    через регистрацию пользователя через Discord
+  requirement: >
+    При вводе несуществующей почты или пароля пользователь должен
+    получить сообщение об ошибке
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Далее Sign in with
+    Discord
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+    Адрес эл. почты или номер телефона = tatestbo.gmail.com Пароль = Password
+  steps:
+    - Вводим эл.почту
+    - Вводим пароль
+    - Подтверждаем, что не работ
+  expected-result: |
+    Регистрация не произойдёт. Выйдет ошибка, что данные не верные
+# Позитивное
+
+- summary: |
+    Успешный вход в ЛК через страницу регистрации
+  requirement: |
+    На странице регистрации есть возможность войти в ЛК. При наличии аккаунта.
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Если у вас есть
+    учетная запись Войти
+  test-data: |
+    https://codebattle.hexlet.io/session/new?next=/
+    Email = tatyana.borsheva@gmail.com Password = vbvbkjk87!
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Пользователь должен успешно войти в свой ЛК
+    https://codebattle.hexlet.io/#lobby
+# Негативное 
+
+- summary: |
+    Проверка входв в ЛК через страницу регистрации с несуществующей почтой
+  requirement: >
+    При вводе в поле Email несуществующей почтой. Пользователь должен
+    получить ошибку
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Если у вас есть
+    учетная запись Войти
+  test-data: |
+    https://codebattle.hexlet.io/session/new?next=/
+    Email = tatyana.borsheva.gmail.com Password = vbvbkjk87!
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Вход в ЛК не произодет. Над строкой ввода Email будет сообщение Invalid email
+    
+- summary: |
+    Проверка входв в ЛК через страницу регистрации с неверным паролем
+  requirement: >
+    При вводе в поле Password неверный пароль. Пользователь должен
+    получить ошибку
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Если у вас есть
+    учетная запись Войти
+  test-data: |
+    https://codebattle.hexlet.io/session/new?next=/
+    Email = tatyana.borsheva@gmail.com Password = vbvb11111
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Вход в ЛК не произодет. Над строкой ввода Email будет сообщение
+    INVALID_PASSWORD
+    
+- summary: |
+    Успешный вход в ЛК через страницу регистрации, когда забыли пароль
+  requirement: |
+    На странице регистрации есть возможность войти в ЛК. При наличии аккаунта.
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Если у вас есть
+    учетная запись Войти. нажимаем на Forgot your password?
+  test-data: |
+    https://codebattle.hexlet.io/session/new?next=/
+    Email = tatyana.borsheva@gmail.com
+  steps:
+    - Вводим Email
+    - Нажимаем кнопку «Submit»
+    - Получаем сообщение We have sent you an email with instructions on how to
+      reset your password
+    - На почте прийдет письмо с ссылкой для создания нового пароля
+    - Переходим по ссылке
+    - Создаем новый пароль
+  expected-result: >
+    Пароль поменялся. Будет сообщение You can now sign in with your new password 
+    
+# Позитивное тестирование через Github    
+
+- summary: |
+    Успешный вход в ЛК через страницу регистрации, через Github
+  requirement: >
+    На странице регистрации есть возможность войти в ЛК. При наличии
+    аккаунта. через Github
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Если у вас есть
+    учетная запись Войти. нажимаем на Sign in with Github
+  test-data: |
+    https://codebattle.hexlet.io/session/new?next=/
+  steps:
+    - Нажимаем на Sign in with Github
+  expected-result: |
+    Сразу поподаем в свой ЛК codebattle
+    
+- summary: |
+    Успешный вход в ЛК через страницу регистрации, через Discord
+  requirement: |
+    На странице регистрации есть возможность войти в ЛК. При наличии аккаунта.
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Если у вас есть
+    учетная запись Войти. нажимаем на Sign in with Discord
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+  steps:
+    - Вводим почту, пароль
+    - Вход
+    - Авторизация
+  expected-result: |
+    Поподаем в свой ЛК codebattle
+    
+- summary: >
+    Проверка входа в ЛК через страницу регистрации, несуществующей почтой и
+    паролем через Discord
+  requirement: >
+    При вводе несуществующей почты или пароля пользователь должен
+    получить сообщение об ошибке
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Если у вас есть
+    учетная запись Войти. нажимаем на Sign in with Discord
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+    Адрес эл. почты или номер телефона = tatestbo.gmail.com Пароль = Password
+  steps:
+    - Вводим эл.почту
+    - Вводим пароль
+    - Подтверждаем, что не работ
+  expected-result: |
+    Выйдет ошибка, что данные не верные
+    
+- summary: >
+    Успешный вход в ЛК через страницу регистрации, через Discord с помощью
+    QR- код
+  requirement: >
+    На странице регистрации есть возможность войти в ЛК. При наличии
+    аккаунта, через Discord с помощью QR- код
+  prerequisites: >
+    Нажимаем на кнопку зарегистрироваться.
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F Если у вас есть
+    учетная запись Войти. нажимаем на Sign in with Discord
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+  steps:
+    - Сканирование QR- код
+    - Переход по ссылке
+  expected-result: |
+    Поподаем в свой ЛК codebattle
+    
+- summary: |
+    Успешный вход в ЛК
+  requirement: |
+    При наличии аккаунта. Можно войти в ЛК при нажатии кнопки Sign In
+  prerequisites: >
+    Нажимаем на кнопку Sign In.
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  test-data: |
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Email = tatyana.borsheva@gmail.com Password = vbvbkjk87!
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Пользователь должен успешно войти в свой ЛК
+    https://codebattle.hexlet.io/#lobby
+    
+- summary: |
+    Проверка входв в ЛК с несуществующей почтой
+  requirement: >
+    При вводе в поле Email несуществующую почту. Пользователь должен
+    получить ошибку
+  prerequisites: >
+    Нажимаем на кнопку Sign In.
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  test-data: |
+    Sign In. https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Email = tatyana.borsheva.gmail.com Password = vbvbkjk87!
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Вход в ЛК не произодет. Над строкой ввода Email будет сообщение Invalid email
+    
+- summary: |
+    Проверка входв в ЛК с неверным паролем
+  requirement: >
+    При вводе в поле Password неверный пароль. Пользователь должен
+    получить ошибку
+  prerequisites: >
+    Нажимаем на кнопку  Sign In.
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  test-data: |
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Email = tatyana.borsheva@gmail.com Password = vbvb11111
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: >
+    Вход в ЛК не произодет. Над строкой ввода Email будет сообщение INVALID_PASSWORD
+    
+- summary: |
+    Успешный вход в ЛК, когда забыли пароль
+  requirement: |
+    При наличии аккаунта. Есть возможность войти в ЛК, если забыли пароль
+  prerequisites: >
+    Нажимаем на кнопку Sign In.
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F нажимаем на
+    Forgot your password?
+  test-data: |
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Email = tatyana.borsheva@gmail.com
+  steps:
+    - Вводим Email
+    - Нажимаем кнопку «Submit»
+    - Получаем сообщение We have sent you an email with instructions on how to
+      reset your password
+    - На почту придёт письмо с ссылкой для создания нового пароля
+    - Переходим по ссылке
+    - Создаем новый пароль
+  expected-result: >
+    Пароль поменялся. Будет сообщение You can now sign in with your
+    new password. Пользователь может продолжить вход в ЛК.
+    
+- summary: |
+    Успешный вход в ЛК через Github
+  requirement: |
+    При наличии аккаунта можно войти в ЛК через Github
+  prerequisites: >
+    Нажимаем на кнопку Sign In.
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F нажимаем на Sign
+    in with Github
+  test-data: |
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  steps:
+    - Нажимаем на Sign in with Github
+  expected-result: |
+    Сразу поподаем в свой ЛК codebattle
+    
+- summary: |
+    Успешный вход в ЛК через Discord
+  requirement: |
+    При наличии аккаунта, можно войти в ЛК через Discord
+  prerequisites: >
+    Нажимаем на кнопку Sign In.
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F нажимаем на Sign
+    in with Discord
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+  steps:
+    - Вводим почту, пароль
+    - Вход
+    - Авторизация
+  expected-result: |
+    Поподаем в свой ЛК codebattle
+    
+- summary: >
+    Проверка входа пользователя с несуществующей почтой и паролем через
+    регистрацию пользователя через Discord
+  requirement: >
+    При вводе несуществующей почты или пароля пользователь должен
+    получить сообщение об ошибке
+  prerequisites: >
+    Нажимаем на кнопку Sign In.
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F Далее Sign in
+    with Discord
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+    Адрес эл. почты или номер телефона = tatestbo.gmail.com Пароль = Password
+  steps:
+    - Вводим эл.почту
+    - Вводим пароль
+    - Подтверждаем, что не работ
+  expected-result: |
+    Вход не произойдет. Выйдет ошибка, что данные не верные
+    
+- summary: |
+    Успешный вход в ЛК через Discord с помощью QR- код
+  requirement: |
+    При наличии аккаунта, можно войти через Discord с помощью QR- код
+  prerequisites: >
+    Нажимаем на кнопку Sign In.
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F нажимаем на Sign
+    in with Discord
+  test-data: >
+    https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
+  steps:
+    - Сканирование QR- код
+    - Переход по ссылке
+  expected-result: |
+    Поподаем в свой ЛК codebattle
+    
+- summary: |
+    Успешный переход в Sign Up через форму Входа
+  requirement: |
+    Находясь в форме входа есть возможность перейти в форму регистрации
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  test-data: |
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  steps: -Have not an account? Нажимаем на кнопку Sign Up - Переход по ссылке
+  expected-result: >
+    Переходим на страницу Регистрации
+    https://codebattle.hexlet.io/users/new?next=/
+    
+- summary: |
+    Проверка успешная работа кнопки Кнопки Try simple battly
+  requirement: >
+    При нажатии на кнопку Try simple battly, пользователь должен
+    попасть на страницу пробной игры 
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/
+  test-data: |
+    Кнопка Try simple battly
+  steps: -Нажимаем на Try simple battly
+  expected-result: >
+    При успешной работе кнопки. Должен произойти переход на
+    страницу игры. Регистрация не требуется.
+    
+- summary: |
+    Успешно работающее руководство к пробной игре. Всплывающее окошко.
+  requirement: >
+    При переходе на страницу пробной игры. Должно появиться окошко с
+    руководством к использованию редактора
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Проверяем всплывающее окошко руководства на активность
+  expected-result: >
+    При переходе в пробную игру должно появиться всплывающее окошко
+    с руководство к игре. Где мы можем ознакомиться, как работает редактор и где
+    что находится. Либо закрыть его.
+    
+- summary: |
+    Исследовательское тестирование страницы пробной игры 
+  requirement: >
+    Страница пробной игры должна быть разработана с учетом требований и
+    функциональности. Доступным для пользователей без регистрации.
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Решение задачи на скорость против другого игрока
+    - Оба игрока видят друг у друга редактор с кодом
+    - Оба игрока видят друг у друга вывод тестов
+    - Есть возможность менять язык программирования во время решения
+    - Игра происходит с ботом
+    - Игра подбирается автоматически
+    - Есть возможность выбрать на каком языке давать описание задачи — русском и
+      английском
+    - Каждый игрок видит код своего соперника в режиме он-лайн.
+    - У каждого игрока есть опция "проверить" для проверки своего решения.
+    - Когда один из игроков находит верное решение, обоим игрокам открывается
+      модное окно, где написано, кто является победителем этой игры.
+    - Из игры можно выйти, а может доиграть до конца.
+    - Оба предпочтения два редактора. Слева - своего редактора, справа –
+      соперника
+    - Наверху находится время игры и ниже - задание
+    - Слева есть чат
+    - Редактор для ввода кода выглядит как проигрыватель
+  expected-result: >
+    Страница пробной игры выглядит согласна требованиям доступным
+    без регистрации пользователя.
+    
+- summary: |
+    Успешно работающая кнопка show guide пробной игры 
+  requirement: >
+    При нажатии кнопки show guide. Должно появиться всплывающее окошко
+    с руководство к использованию редактора
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку show guide
+  expected-result: |
+    Появляется всплывающее окошко с инструкцией, где, что находится.
+    
+- summary: |
+    Успешно работающая кнопка выбора языка программирования пробной игры 
+  requirement: >
+    При нажатии кнопки выбора языка программирования. Должен появиться,
+    список где можно выбрать язык программирования
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку выбора языка программирования
+    - Выбираем язык JS
+  expected-result: |
+    Язык программирования должен поменяться
+    
+- summary: |
+    Успешно работающая кнопка сдаться пробной игры 
+  requirement: >
+    При нажатии кнопки сдаться. Должен появиться, окошко для
+    подтверждения сдаться.
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку сдаться
+  expected-result: >
+    Появляется окошко с уточняющим вопросом, Ты уверен, что хочешь
+    сдаться? Где можно выбрать сдаться или отменить.
+    
+- summary: |
+    Успешно работающая кнопка Сбросить редактор пробной игры 
+  requirement: |
+    При нажатии кнопки Сбросить редактор Должен произойти сброс написанного кода
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку Сбросить редактор
+  expected-result: |
+    Происходит сброс написанного кода
+    
+- summary: |
+    Успешно работающая кнопка Проверить решение пробной игры 
+  requirement: |
+    При нажатии кнопки Проверить решение Идет проверка решения
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку Проверить решение
+  expected-result: |
+    Происходит Проверка решения задачи и вывод результата в редактор.
+    
+- summary: |
+    Успешно работающая кнопка Open History в пробной игре
+  requirement: >
+    При нажатии кнопки Open History Появляется плеер для просмотра Игры
+    и кнопка Return to game
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку Open History
+  expected-result: |
+    Появляется плеер. Если нажать на кнопку play можно увидеть запись игры
+    
+- summary: |
+    Успешно работающая кнопка Return to game в пробной игре
+  requirement: |
+    Когда была нажата кнопка Open History Появляется кнопка Return to game
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку Return to game
+  expected-result: |
+    Должны вернутся к игре.
+    
+- summary: |
+    Успешно работающая кнопка Back to Home в пробной игре
+  requirement: >
+    При успешной работе кнопки Back to Home возвращаемся на главную
+    страницу сайта https://codebattle.hexlet.io/
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку Back to Home
+  expected-result: |
+    Возвращаемся на главную страницу сайта  https://codebattle.hexlet.io/
+    
+- summary: |
+    Успешно работающая кнопка Uotput в пробной игре
+  requirement: >
+    При успешной работе кнопки Uotput Появляется сообщение Press Check
+    solution or press Give up
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141199
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку Uotput
+  expected-result: |
+    Ниже появится сообщение Press Check solution or press Give up
+    
+- summary: |
+    Успешно работающая кнопка Создать игру
+  requirement: |
+    Пользователь нажимает "Создать игру" 
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+    - Нажимаем на кнопку Создать игру
+  expected-result: |
+    Появляется окошко для создания и выбора игры
+    
+- summary: |
+    Успешное создание Игры
+  requirement: >
+    При появлении окошка Создать игру. Можно выбрать сложность, с кем
+    играть, самостоятельный выбор игры или рандомная подборка игры
+  prerequisites: >
+    Открыта страница https://codebattle.hexlet.io/#lobby Нажали на
+    кнопку создать игру
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+    - Выбираем Уровень игры
+    - Выбираем тип игры (с другим пользователем, бот)
+    - Выставляем контроль времени ( от 3 мин до 60 мин)
+    - Выбираем задачу по названию или тегам. Можно оставить случайную задачу.
+    - Нажимаем создать битву
+  expected-result: |
+    Создастся игра по выбранным условиям.
+    
+- summary: |
+    Успешное создание Игры с другом
+  requirement: >
+    При появлении окошка Создать игру. Можно выбрать сложность, с кем
+    играть, самостоятельный выбор игры или рандомная подборка игры
+  prerequisites: >
+    Открыта страница https://codebattle.hexlet.io/#lobby Нажали на
+    кнопку создать игру
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+    - Выбираем Уровень игры
+    - Выбираем тип игры с другом
+    - Выставляем контроль времени ( от 3 мин до 60 мин)
+    - Можно оставить случайную задачу.
+    - Нажимаем создать битву
+  expected-result: >
+    Отправляется ссылка с приглашением. Игру можно отменить
+    отправителем, также принять вызов или отказать.
+    
+- summary: |
+    Успешно работающая кнопка выбора языка программирования
+  requirement: >
+    При нажатии кнопки выбора языка программирования. Должен появиться,
+    список где можно выбрать язык программирования
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141288
+  test-data: |
+    https://codebattle.hexlet.io/games/141288
+  steps:
+    - Нажимаем на кнопку выбора языка программирования
+    - Выбираем язык JS
+  expected-result: |
+    Язык программирования должен поменяться
+    
+- summary: |
+    Успешно работающая кнопка Проверить решение 
+  requirement: |
+    При нажатии кнопки Проверить решение Идет проверка решения
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141288
+  test-data: |
+    https://codebattle.hexlet.io/games/141288
+  steps:
+    - Нажимаем на кнопку Проверить решение
+  expected-result: >
+    Происходит Проверка решения задачи и вывод результата в верхнюю
+    часть редактора.
+    
+- summary: |
+    Успешно работающая кнопка выбора языка 
+  requirement: >
+    При нажатии кнопки выбора языка. Должен появиться, список где можно
+    выбрать язык на котором будет написана задача
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141288
+  test-data: |
+    https://codebattle.hexlet.io/games/141288
+  steps:
+    - Нажимаем на кнопку выбора языка русский/английский
+    - Выбираем русский
+  expected-result: |
+    Текст задачи переведется на русский язык
+    
+- summary: |
+    Завершенная игра доступна в записи
+  requirement: >
+    По окончанию игры. При нажатии кнопки Open History появляется плеер
+    для просмотра Игры
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141288
+  test-data: |
+    https://codebattle.hexlet.io/games/141288
+  steps:
+    - Нажимаем на кнопку Open History
+    - Если нажать на кнопку play можно увидеть запись игры
+  expected-result: |
+    Идет запись игры
+    
+- summary: |
+    Появляется окошко, где написано, кто является победителем этой игры.
+  requirement: >
+    Когда один из игроков находит верное решение, обоим игрокам должно
+    открывается окно, где написано, кто является победителем этой игры.
+  prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/games/141288
+  test-data: |
+    https://codebattle.hexlet.io/games/141288
+  steps:
+    - Нажимаем на кнопку Проверить решение
+  expected-result: >
+    Обоим игрокам открывается окно, где написано, кто является
+    победителем этой игры.
+    
+- summary: |
+    Успешно работающая кнопка Back to Home
+  requirement: >
+    При успешной работе кнопки Back to Home возвращаемся страницу сайта
+    https://codebattle.hexlet.io/#lobby
+  prerequisites: |
+    Открыта страница игры https://codebattle.hexlet.io/games/141288
+  test-data: |
+    https://codebattle.hexlet.io/games/141199
+  steps:
+    - Нажимаем на кнопку Back to Home
+  expected-result: |
+    Возвращаемся на главную страницу сайта  https://codebattle.hexlet.io/#lobby
+    
+- summary: |
+    Можно следить за ходом игры
+  requirement: |
+    Пользователи могут следить за ходом игры
+  prerequisites: |
+    Открыта страница игры https://codebattle.hexlet.io/tournaments/758/
+  test-data: |
+    https://codebattle.hexlet.io/tournaments/758/
+  steps:
+    - Нажимаем на кнопку Показывать
+  expected-result: |
+    Попадаем на битву пользователей, где можно наблюдать ход событий
+    
+- summary: |
+    Проверка страницы игры, редактора
+  requirement: >
+    Исследовательское тестирование Страница игры, редактор должны быть
+    разработаны с учетом требований и функциональности.
+  prerequisites: |
+    Открыта страница игры https://codebattle.hexlet.io/games/141288
+  test-data: |
+    https://codebattle.hexlet.io/games/141288
+  steps:
+    - Решение задачи на скорость против другого игрока.
+    - Оба игрока видят друг у друга редактор с кодом
+    - Оба игрока видят друг у друга вывод тестов
+    - В игре есть чат, в котором общаются зарегистрированные пользователи
+    - Каждый игрок видит код своего соперника в режиме он-лайн.
+    - Если вдруг один из игроков вылетел из игры, второй может продолжать играть.
+    - Первый в любой момент игра, пока она не закончена, может переподключиться
+      в игре.
+    - Когда оба игрока прошли, игра была полностью завершена и обработана из
+      памяти.
+    - Два редактора. Слева - своего редактора, справа – соперника
+    - Наверху находится время игры и ниже - задание
+    - Чат слева
+    - Редактор для ввода кода выглядит как проигрыватель
+  expected-result: |
+    Страница игры выглядит согласна требованиям
+    
+- summary: |
+    Можно посмотреть рейтинг пользователей
+  requirement: |
+    При нажатии на аватарку (верхнем правом углу)появляется всплывающее список.
+  prerequisites: |
+    Открыта страница игры https://codebattle.hexlet.io/#lobby
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+    - Нажимаем на аватарку (верхнем правом углу)
+    - Появившегося всплывающего списка
+    - Выбираем Рейтинг пользователей
+  expected-result: >
+    По подаем на страницу Рейтинг пользователей
+    https://codebattle.hexlet.io/users, где можно посмотреть Рейтинг за неделю,
+    месяц, все время.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Лобби
+  requirement: >
+    На Веб-сайт должны работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/#lobby
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, страницы, вкладки открываться. Работают.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Турниры
+  requirement: >
+    На Веб-сайт должны работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/#tournaments
+  test-data: |
+    https://codebattle.hexlet.io/#tournaments
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, страницы, вкладки открываться. Работают.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Завершенные игры
+  requirement: >
+    На Веб-сайт должны работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/#completedGames
+  test-data: |
+    https://codebattle.hexlet.io/#completedGames
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, страницы, вкладки открываться. Работают.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Мой профиль
+  requirement: >
+    На Веб-сайт должны работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/users/10780
+  test-data: |
+    https://codebattle.hexlet.io/users/10780
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, вкладки открываться.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Настройки
+  requirement: >
+    На Веб-сайт должны работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/settings
+  test-data: |
+    https://codebattle.hexlet.io/settings
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: >
+    Все кнопочки, переходы по ссылкам, вкладки открываться. Выбор
+    необходимых данных производится
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Рейтинг пользователя
+  requirement: >
+    На Веб-сайт должны работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/users
+  test-data: |
+    https://codebattle.hexlet.io/users
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, вкладки открываться.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Рейтинг пользователя
+  requirement: >
+    На Веб-сайт должены работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/users
+  test-data: |
+    https://codebattle.hexlet.io/users
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, вкладки открываться.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Задания
+  requirement: >
+    На Веб-сайт должены работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/tasks
+  test-data: |
+    https://codebattle.hexlet.io/tasks
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, вкладки открываться.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Турниры
+  requirement: >
+    На Веб-сайт должены работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/tournaments
+  test-data: |
+    https://codebattle.hexlet.io/tournaments
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, вкладки открываться.
+    
+- summary: |
+    Проверка Веб-сайта на успешную работу. Турниры
+  requirement: >
+    На Веб-сайт должены работать все кнопочки, переходы по ссылкам,
+    страницы, вкладки открываться. 
+  prerequisites: |
+    Исследовательское тестирование. https://codebattle.hexlet.io/tournaments
+  test-data: |
+    https://codebattle.hexlet.io/tournaments
+  steps:
+    - Просмотр основных разделов страницы
+  expected-result: |
+    Все кнопочки, переходы по ссылкам, вкладки открываться.
