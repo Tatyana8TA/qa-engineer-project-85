@@ -312,7 +312,7 @@
   prerequisites: >
     Нажимаем на кнопку зарегистрироваться.
     https://codebattle.hexlet.io/users/new?locale=en&next=%2F Далее Sign in with
-    Github Отсканировать QR- код
+    Discord Отсканировать QR- код
   test-data: >
     https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D805773644780666930%26redirect_uri%3Dhttps%253A%252F%252Fcodebattle.hexlet.io%252Fauth%252Fdiscord%252Fcallback%26response_type%3Dcode%26scope%3Didentify%2Bemail
   steps:
