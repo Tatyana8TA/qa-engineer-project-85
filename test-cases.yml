@@ -652,7 +652,8 @@
     Открыта страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
   test-data: |
     https://codebattle.hexlet.io/session/new?locale=en&next=%2F
-  steps: -Have not an account? Нажимаем на кнопку Sign Up - Переход по ссылке
+  steps: 
+  - Have not an account? Нажимаем на кнопку Sign Up - Переход по ссылке
   expected-result: >
     Переходим на страницу Регистрации
     https://codebattle.hexlet.io/users/new?next=/
@@ -666,7 +667,8 @@
     Открыта страница https://codebattle.hexlet.io/
   test-data: |
     Кнопка Try simple battly
-  steps: -Нажимаем на Try simple battly
+  steps: 
+  - Нажимаем на Try simple battly
   expected-result: >
     При успешной работе кнопки. Должен произойти переход на
     страницу игры. Регистрация не требуется.
