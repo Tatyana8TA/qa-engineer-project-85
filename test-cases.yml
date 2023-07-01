@@ -235,7 +235,7 @@
     https://codebattle.hexlet.io/users/new?locale=en&next=%2F Далее Sign in with
     Github
   test-data: |
-    Username or email address = Tatyana8TA Password = Password
+    Username or email address = Tatyana8T Password = Password
   steps:
     - Вводим Username or email address
     - Вводим Password
